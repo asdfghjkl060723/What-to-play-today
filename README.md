@@ -1,14 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: 71387854f6f121d0438faa3d1cae15f1_90ed65f9af2811f18f50525400aeaaa3
-    ReservedCode1: a+MTFU2UrbI2ow3WuBdKG5Sr++T5TTHkBCfB21b/8zmEMIXf3elD4CJpxGysafCMJShXVL+37nhwtj3vQLAMwoyPIOPpu05rHm0eTzdHibEh04ilT0Hf2LxnRs5jxgb0T+CrvYefWfNZDxrqG2yQXz5cU+3rVrM29qe3WCGa98xwXLOQfOeSXl3LDZI=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: 71387854f6f121d0438faa3d1cae15f1_90ed65f9af2811f18f50525400aeaaa3
-    ReservedCode2: a+MTFU2UrbI2ow3WuBdKG5Sr++T5TTHkBCfB21b/8zmEMIXf3elD4CJpxGysafCMJShXVL+37nhwtj3vQLAMwoyPIOPpu05rHm0eTzdHibEh04ilT0Hf2LxnRs5jxgb0T+CrvYefWfNZDxrqG2yQXz5cU+3rVrM29qe3WCGa98xwXLOQfOeSXl3LDZI=
----
-
 # 今天玩什么 (What to Play Today)
 
 一款 **Millennium Steam 客户端插件**。
@@ -174,7 +163,6 @@ SteamClient.URL.ExecuteSteamURL("steam://rungameid/" + gameId)
 | `GetGamesCache` | 无 | `{ ok, data }` 或 `{ ok: false }` | 读取游戏列表缓存 |
 | `SaveGamesCache` | `{ games, game_count }` (JSON 字符串) | `{ ok }` | 保存游戏列表缓存到 `games_cache.json` |
 | `LogDiag` | `text` | `{ ok }` | 前端定位诊断日志写入后端日志文件 |
-| `OpenInBrowser` | `url` | `{ ok }` | 用系统默认浏览器打开 URL（仅允许 http/https，Windows 用 `rundll32` 不弹 cmd 窗口） |
 
 ---
 
