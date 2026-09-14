@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/SteamClientHomebrew/Millennium/main/src/sys/plugin-schema.json",
+  "name": "what-to-play-today",
+  "common_name": "今天玩什么",
+  "description": "在 Steam 标题栏工具栏添加一个骰子按钮，点击后弹出“今天玩什么”窗口，可从 Steam 库中已安装的游戏里随机抽取一款，并支持一键启动。",
+  "version": "1.0.0",
+  "backendType": "lua"
+}
