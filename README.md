@@ -87,13 +87,11 @@ what-to-play-today/
 - **独立图层**：`position: fixed; z-index: 1000000`，不加入 Steam 工具栏按钮组，不挤压推移原生按钮；
 - **不随 Steam 重渲染乱跑**：只在首次挂载、窗口尺寸变化、库↔非库页面切换时重新计算坐标，Steam 内部 DOM 变化（如悬停通知铃铛）不触发重定位；
 - **可见性兜底**：挂载后 5 秒内若未能定位到目标行，自动落到右上角可见区，绝不出现「按钮存在但看不见」的状态；
-- **自动适配主题**：检测 Millennium 主题的背景色、文字色、强调色、圆角、字体，自动适配深色 / 浅色主题。
 
 ### 2. 弹窗 UI
 
 - 首选 `MILLENNIUM_API.showModal(element, undefined, { strTitle, popupWidth, popupHeight, bForcePopOut: true, bHideActionIcons: true })` 由 Millennium 创建独立弹窗窗口；
 - 兜底：若 `showModal` 不可用，使用 ReactDOM 在主窗口内渲染自有遮罩浮层（带标题栏与「关闭」按钮）；
-- 弹窗样式自动适配当前 Millennium 主题。
 
 ### 3. 游戏清单获取（双源）
 
@@ -142,11 +140,11 @@ SteamClient.URL.ExecuteSteamURL("steam://rungameid/" + gameId)
 
 按钮定位的每一步都会以 `[diag]` 前缀记录，内容包括：**锚点候选数量**、**命中模式**（`nav-right`）、**最终坐标**以及 **fixed 基准宿主**。三个查看入口：
 
-1. Steam 控制台（`F12`）过滤 `[diag]`；
+1. Millennium日志展示过滤 `[diag]`；
 2. 控制台执行 `window.__TWTP_DIAG__` 查看最近 15 条；
 3. 插件日志文件 `<Steam>\millennium\logs\`（由后端 `LogDiag` 写入，节流 1.2 秒）。
 
-后端日志位于 `<Steam>\millennium\logs\`（同时输出到 Millennium 控制台），标签为 `[WhatToPlay]`。
+后端日志位于 `<Steam>\millennium\logs\`（同时输出到 Millennium日志展示），标签为 `[WhatToPlay]`。
 
 ---
 
@@ -163,6 +161,7 @@ SteamClient.URL.ExecuteSteamURL("steam://rungameid/" + gameId)
 | `GetGamesCache` | 无 | `{ ok, data }` 或 `{ ok: false }` | 读取游戏列表缓存 |
 | `SaveGamesCache` | `{ games, game_count }` (JSON 字符串) | `{ ok }` | 保存游戏列表缓存到 `games_cache.json` |
 | `LogDiag` | `text` | `{ ok }` | 前端定位诊断日志写入后端日志文件 |
+| `OpenInBrowser` | `url` | `{ ok }` | 用系统默认浏览器打开 URL（仅允许 http/https，Windows 用 `rundll32` 不弹 cmd 窗口） |
 
 ---
 
